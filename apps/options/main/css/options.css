@@ -1,0 +1,8 @@
+body {
+	margin-top: 60px;
+}
+
+#load {
+	display: none;
+	padding: 10px 0px 10px;
+}

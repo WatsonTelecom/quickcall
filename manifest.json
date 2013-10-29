@@ -1,0 +1,47 @@
+{
+    "name": "Click to call Extension",
+    "version": "1.0.0",
+    "manifest_version": 2,
+
+    "description": "Click to call",
+
+    "icons": {
+      "128": "img/icon128.png",
+      "16": "img/icon16.png",
+      "48": "img/icon48.png"
+   },
+
+    "web_accessible_resources": [
+        "apps/options/main/tmpl/options.html"
+    ],
+
+    "permissions": [
+        "*://*/",
+        "tabs",
+        "storage",
+        "notifications",
+        "tabs"
+    ],
+
+    "background": {
+        "page": "apps/background/tmpl/background.html"
+    },
+
+    "content_scripts": [
+        {
+            "all_frames": false,
+            "js": [
+                "lib/jquery/jquery-2.0.1.min.js",
+                "lib/jquery/plugins/domsearch.js",
+                "apps/inject/main.js"
+            ],
+            "css": ["apps/inject/css/bootstrap.css"],
+            "matches": ["*://*/*"],
+            "run_at": "document_end"
+       }
+    ],
+
+    "browser_action": {
+         "default_icon": "img/icon.png"
+    }
+}
